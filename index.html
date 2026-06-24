@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chronos — Discover exceptional timepieces crafted with precision and heritage. Luxury watches from the world's finest horologists.">
+  <title>Chronos — Luxury Timepieces</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">Chron<span>os</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#collections" class="nav-link">Collections</a></li>
+      <li class="nav-item-mega">
+        <a href="#products" class="nav-link">Watches</a>
+        <div class="mega-menu">
+          <div class="mega-menu-col">
+            <h4>By Style</h4>
+            <a href="#">Dress Watches</a>
+            <a href="#">Dive Watches</a>
+            <a href="#">Pilot Watches</a>
+            <a href="#">Field Watches</a>
+            <a href="#">Racing Watches</a>
+          </div>
+          <div class="mega-menu-col">
+            <h4>By Material</h4>
+            <a href="#">Stainless Steel</a>
+            <a href="#">Rose Gold</a>
+            <a href="#">Titanium</a>
+            <a href="#">Ceramic</a>
+            <a href="#">Platinum</a>
+          </div>
+          <div class="mega-menu-col">
+            <h4>By Price</h4>
+            <a href="#">Under $5,000</a>
+            <a href="#">$5,000 — $15,000</a>
+            <a href="#">$15,000 — $50,000</a>
+            <a href="#">Above $50,000</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#limited" class="nav-link">Limited Edition</a></li>
+      <li><a href="#story" class="nav-link">Our Story</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <select class="currency-select" id="currencySelect" aria-label="Currency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="JPY">JPY</option>
+        <option value="INR">INR</option>
+      </select>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+        </svg>
+      </button>
+
+      <button class="nav-action-btn" id="searchBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+
+      <button class="nav-action-btn" id="wishlistBtn" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+        </svg>
+      </button>
+
+      <button class="nav-action-btn" id="cartBtn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#collections">Collections</a>
+  <a href="#products">Watches</a>
+  <a href="#limited">Limited Edition</a>
+  <a href="#story">Our Story</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-wrapper">
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search timepieces..." autocomplete="off">
+      <button class="search-close" id="searchClose">Close</button>
+    </div>
+    <div class="search-suggestions">
+      <h4>Popular Searches</h4>
+      <a href="#">Chronograph</a>
+      <a href="#">Automatic Movement</a>
+      <a href="#">Dive Watch</a>
+      <a href="#">Limited Edition</a>
+      <a href="#">Rose Gold</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">Swiss Precision Since 1892</span>
+      <h1 class="hero-title">Time, <em>Perfected</em></h1>
+      <p class="hero-desc">Discover exceptional timepieces crafted by master horologists. Each watch represents generations of expertise, precision engineering, and uncompromising luxury.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary">Shop Collection</a>
+        <a href="#collections" class="btn btn-outline">Explore Models</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-value">130+</span>
+          <span class="hero-stat-label">Years of Heritage</span>
+        </div>
+        <div>
+          <span class="hero-stat-value">50K+</span>
+          <span class="hero-stat-label">Timepieces Sold</span>
+        </div>
+        <div>
+          <span class="hero-stat-value">42</span>
+          <span class="hero-stat-label">Countries</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-ring"></div>
+      <div class="hero-image-ring"></div>
+      <img src="images/watch-hero.png" alt="Chronos Signature Timepiece">
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED BRANDS ===== -->
+<section class="section" style="padding: var(--space-2xl) 0;">
+  <div class="container">
+    <div class="brands-row">
+      <span class="brand-logo">CHRONOS</span>
+      <span class="brand-logo">MERIDIAN</span>
+      <span class="brand-logo">AURELIAN</span>
+      <span class="brand-logo">VERTEX</span>
+      <span class="brand-logo">SOLARIS</span>
+      <span class="brand-logo">ZENITH</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLLECTIONS ===== -->
+<section class="section" id="collections">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Curated Selection</span>
+      <h2 class="section-title">Featured Collections</h2>
+      <p class="section-subtitle">Explore our meticulously curated collections, each embodying a distinct philosophy of horological excellence.</p>
+    </div>
+    <div class="collections-grid">
+      <div class="collection-card" data-category="luxury">
+        <div class="collection-card-img">
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&h=800&fit=crop" alt="Luxury Collection">
+        </div>
+        <div class="collection-card-body">
+          <h3>Luxury</h3>
+          <p>24 Timepieces</p>
+        </div>
+      </div>
+      <div class="collection-card" data-category="sports">
+        <div class="collection-card-img">
+          <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=600&h=800&fit=crop" alt="Sports Collection">
+        </div>
+        <div class="collection-card-body">
+          <h3>Sports</h3>
+          <p>18 Timepieces</p>
+        </div>
+      </div>
+      <div class="collection-card" data-category="classic">
+        <div class="collection-card-img">
+          <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=600&h=800&fit=crop" alt="Classic Collection">
+        </div>
+        <div class="collection-card-body">
+          <h3>Classic</h3>
+          <p>32 Timepieces</p>
+        </div>
+      </div>
+      <div class="collection-card" data-category="smart">
+        <div class="collection-card-img">
+          <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600&h=800&fit=crop" alt="Smart Watches">
+        </div>
+        <div class="collection-card-body">
+          <h3>Smart</h3>
+          <p>12 Timepieces</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEST SELLERS ===== -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Most Popular</span>
+      <h2 class="section-title">Best Sellers</h2>
+      <p class="section-subtitle">Our most sought-after timepieces, chosen by discerning collectors worldwide.</p>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="products-toolbar">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="luxury">Luxury</button>
+        <button class="filter-tab" data-filter="sports">Sports</button>
+        <button class="filter-tab" data-filter="classic">Classic</button>
+        <button class="filter-tab" data-filter="smart">Smart</button>
+      </div>
+      <div class="price-filter">
+        <label>Max Price:</label>
+        <input type="range" class="price-slider" id="priceSlider" min="0" max="100000" value="100000" step="1000">
+        <span class="price-value" id="priceValue">$100,000</span>
+      </div>
+      <select class="sort-select" id="sortSelect" aria-label="Sort by">
+        <option value="featured">Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating">Highest Rated</option>
+        <option value="newest">Newest First</option>
+      </select>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Products injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEW ARRIVALS ===== -->
+<section class="section" id="newArrivals">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Just Arrived</span>
+      <h2 class="section-title">New Arrivals</h2>
+      <p class="section-subtitle">The latest additions to our collection — fresh from the workshops of master watchmakers.</p>
+    </div>
+    <div class="products-grid" id="newArrivalsGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIMITED EDITION ===== -->
+<section class="section" id="limited">
+  <div class="container">
+    <div class="limited-banner">
+      <div class="limited-content">
+        <span class="limited-tag">Limited Edition</span>
+        <h2 class="limited-title">The <em>Sovereign</em> Perpetual Calendar</h2>
+        <p class="limited-desc">Only 250 pieces will ever be crafted. Featuring a hand-finished movement with 312 components, housed in a 40mm 18K white gold case with a sapphire exhibition caseback.</p>
+        <div class="limited-meta">
+          <div class="limited-meta-item">
+            <div class="value">$42,500</div>
+            <div class="label">Starting At</div>
+          </div>
+          <div class="limited-meta-item">
+            <div class="value">47 Left</div>
+            <div class="label">Remaining</div>
+          </div>
+          <div class="limited-meta-item">
+            <div class="value">250</div>
+            <div class="label">Total Pieces</div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">Reserve Now</a>
+      </div>
+      <div class="limited-image">
+        <img src="images/watch-classic.png" alt="Sovereign Perpetual Calendar">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BRAND STORY ===== -->
+<section class="section brand-story" id="story">
+  <div class="container">
+    <div class="brand-story-img">
+      <img src="https://images.unsplash.com/photo-1617043786394-f977fa12eddf?w=600&h=750&fit=crop" alt="Chronos Workshop">
+    </div>
+    <div class="brand-story-content">
+      <span class="section-label">Our Heritage</span>
+      <h2 class="section-title">Crafted with Purpose</h2>
+      <p class="brand-story-text">Since 1892, Chronos has been at the forefront of horological innovation. What began in a small workshop in the Swiss Jura mountains has evolved into one of the most respected names in luxury watchmaking.</p>
+      <p class="brand-story-text">Every timepiece bearing the Chronos name undergoes over 400 hours of meticulous hand-assembly and testing, ensuring that each watch meets our uncompromising standards of quality and precision.</p>
+      <div class="brand-values">
+        <div class="brand-value">
+          <h4>Precision</h4>
+          <p>COSC-certified movements with accuracy within -4/+6 seconds per day.</p>
+        </div>
+        <div class="brand-value">
+          <h4>Heritage</h4>
+          <p>Over 130 years of unbroken tradition in Swiss horology.</p>
+        </div>
+        <div class="brand-value">
+          <h4>Craftsmanship</h4>
+          <p>400+ hours of hand-assembly for each timepiece we create.</p>
+        </div>
+        <div class="brand-value">
+          <h4>Sustainability</h4>
+          <p>Responsibly sourced materials and carbon-neutral manufacturing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Browse</span>
+      <h2 class="section-title">Watch Categories</h2>
+    </div>
+    <div class="categories-grid">
+      <div class="category-item">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Automatic</h4>
+        <p>45 models</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h4>Chronograph</h4>
+        <p>28 models</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Dive</h4>
+        <p>22 models</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <h4>Smart</h4>
+        <p>12 models</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h4>Dress</h4>
+        <p>36 models</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h4>Limited</h4>
+        <p>8 models</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRENDING ===== -->
+<section class="section" id="trending">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Trending Now</span>
+      <h2 class="section-title">Most Desired</h2>
+      <p class="section-subtitle">What collectors and enthusiasts are searching for this season.</p>
+    </div>
+    <div class="products-grid" id="trendingGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== DELIVERY & PAYMENT INFO ===== -->
+<section class="section">
+  <div class="container">
+    <div class="info-cards">
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <h4>Free Worldwide Shipping</h4>
+        <p>Complimentary insured delivery on all orders. 2-5 business days.</p>
+      </div>
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h4>Authenticity Guaranteed</h4>
+        <p>Every timepiece comes with certificate of authenticity and 5-year warranty.</p>
+      </div>
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <h4>Secure Payment</h4>
+        <p>256-bit SSL encryption. All major credit cards, wire transfer, and financing.</p>
+      </div>
+      <div class="info-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+        <h4>30-Day Returns</h4>
+        <p>Full refund within 30 days. No questions asked, hassle-free process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Client Stories</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Hear from collectors and watch enthusiasts who chose Chronos.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"The Meridian Chronograph exceeded every expectation. The finishing on the dial is extraordinary — you can see the hours of hand-polishing in every detail. A true collector's piece."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JW</div>
+          <div>
+            <div class="testimonial-name">James Whitmore</div>
+            <div class="testimonial-title">Watch Collector, London</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"Purchased the Sovereign Automatic for my anniversary. The unboxing experience alone was worth it — presentation case, certificate, and the watch itself is a masterpiece of engineering."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AK</div>
+          <div>
+            <div class="testimonial-name">Akira Kobayashi</div>
+            <div class="testimonial-title">Architect, Tokyo</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testimonial-text">"As a professional diver, I need a watch I can trust at depth. The Chronos Aqua Navigator has been with me on over 200 dives without missing a beat. Exceptional reliability."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <div class="testimonial-name">Sofia Martinez</div>
+            <div class="testimonial-title">Marine Biologist, Barcelona</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECENTLY VIEWED ===== -->
+<section class="section" id="recentlyViewed" style="display:none;">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Your History</span>
+      <h2 class="section-title">Recently Viewed</h2>
+    </div>
+    <div class="recently-viewed-scroll" id="recentlyViewedScroll">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Support</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          What warranty do your watches come with?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Every Chronos timepiece comes with a comprehensive 5-year international warranty covering manufacturing defects and movement issues. Our warranty is honored at any of our authorized service centers worldwide. Extended warranty options up to 10 years are available at the time of purchase.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I service my Chronos watch?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We recommend servicing your mechanical watch every 4-5 years. You can bring it to any authorized Chronos boutique or service center, or request our insured collection service. Service includes complete movement overhaul, case and bracelet refinishing, and water-resistance testing.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you offer financing options?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, we offer flexible financing through our partnership with leading financial institutions. Interest-free installments are available for up to 24 months on select timepieces. Apply during checkout for instant approval with no impact on your credit score.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What is your return policy?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We offer a 30-day no-questions-asked return policy. The watch must be in its original, unworn condition with all accompanying documentation and packaging. Returns are processed within 5-7 business days, and full refunds are issued to the original payment method.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I customize or engrave my watch?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Select models offer personalization options including caseback engraving, custom dial configurations, and bespoke strap selections. Our Atelier service provides fully bespoke commissions for clients seeking a truly unique timepiece. Please contact our concierge team for details.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Are your watches water-resistant?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Water resistance varies by model. Our dress watches are rated to 30m (splash-proof), sport models to 100m, and dive watches to 300m or deeper. Each watch undergoes ISO 22810 testing. We recommend annual water-resistance checks if you regularly expose your watch to water.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="section newsletter" id="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <span class="section-label">Stay Informed</span>
+      <h2 class="section-title">Join the Inner Circle</h2>
+      <p class="section-subtitle">Be the first to know about new releases, exclusive events, and special offers. No spam, ever.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT & STORE LOCATOR ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Contact & Boutiques</h2>
+      <p class="section-subtitle">Visit our boutiques or reach out to our concierge team.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="contactName">Full Name</label>
+          <input type="text" id="contactName" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email Address</label>
+          <input type="email" id="contactEmail" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="contactSubject">Subject</label>
+          <input type="text" id="contactSubject" placeholder="How can we help?">
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" placeholder="Tell us more..." rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
+      </form>
+      <div class="store-list">
+        <div class="store-item">
+          <h4>Chronos Geneva</h4>
+          <p>12 Rue du Rhone, 1204 Geneva, Switzerland</p>
+          <span class="store-hours">Mon — Sat: 10:00 — 19:00</span>
+        </div>
+        <div class="store-item">
+          <h4>Chronos London</h4>
+          <p>45 New Bond Street, Mayfair, London W1S 1DK</p>
+          <span class="store-hours">Mon — Sat: 10:00 — 18:30</span>
+        </div>
+        <div class="store-item">
+          <h4>Chronos Tokyo</h4>
+          <p>3-5-1 Ginza, Chuo-ku, Tokyo 104-0061, Japan</p>
+          <span class="store-hours">Daily: 11:00 — 20:00</span>
+        </div>
+        <div class="store-item">
+          <h4>Chronos New York</h4>
+          <p>680 Fifth Avenue, New York, NY 10019</p>
+          <span class="store-hours">Mon — Sat: 10:00 — 19:00, Sun: 12:00 — 17:00</span>
+        </div>
+        <div class="store-item">
+          <h4>Chronos Dubai</h4>
+          <p>The Dubai Mall, Financial Centre Road, Dubai, UAE</p>
+          <span class="store-hours">Daily: 10:00 — 22:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Chron<span>os</span></span>
+        <p class="footer-desc">Exceptional timepieces crafted with precision, heritage, and an unwavering commitment to horological excellence.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <a href="#">Luxury</a>
+        <a href="#">Sports</a>
+        <a href="#">Classic</a>
+        <a href="#">Smart Watches</a>
+        <a href="#">Limited Edition</a>
+        <a href="#">New Arrivals</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Craftsmanship</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">Watch Care</a>
+        <a href="#">Service Centers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>2024 Chronos. All rights reserved.</p>
+      <div class="payment-badges">
+        <span class="payment-badge">Visa</span>
+        <span class="payment-badge">Mastercard</span>
+        <span class="payment-badge">Amex</span>
+        <span class="payment-badge">PayPal</span>
+        <span class="payment-badge">Wire Transfer</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== QUICK VIEW MODAL ===== -->
+<div class="modal-overlay" id="quickViewModal">
+  <div class="modal" id="modalContent">
+    <div class="modal-gallery">
+      <img id="modalImage" src="" alt="Product">
+    </div>
+    <div class="modal-details">
+      <button class="modal-close" id="modalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <span class="modal-brand" id="modalBrand"></span>
+      <h3 class="modal-name" id="modalName"></h3>
+      <div class="modal-price" id="modalPrice"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalAddToCart">Add to Cart</button>
+        <button class="btn btn-outline" id="modalWishlist">Wishlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Shopping Cart</h3>
+    <button class="cart-close" id="cartClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span class="amount" id="cartTotal">$0</span>
+    </div>
+    <button class="btn btn-primary">Proceed to Checkout</button>
+    <p>Free shipping on all orders</p>
+  </div>
+</div>
+
+<!-- ===== COMPARE BAR ===== -->
+<div class="compare-bar" id="compareBar">
+  <div class="compare-items" id="compareItems"></div>
+  <div style="display:flex;align-items:center;gap:var(--space-md);">
+    <span class="compare-count" id="compareCount">0 watches selected</span>
+    <button class="btn btn-primary btn-sm" id="compareNowBtn" style="padding:10px 20px;font-size:var(--fs-xs);">Compare Now</button>
+    <button class="btn btn-ghost" id="clearCompareBtn" style="font-size:var(--fs-xs);">Clear</button>
+  </div>
+</div>
+
+<!-- ===== COMPARE MODAL ===== -->
+<div class="compare-modal" id="compareModal">
+  <div class="compare-modal-inner">
+    <button class="modal-close" id="compareModalClose" style="position:absolute;top:var(--space-lg);right:var(--space-lg);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 style="font-family:var(--font-serif);font-size:var(--fs-xl);margin-bottom:var(--space-xl);">Compare Watches</h3>
+    <table class="compare-table" id="compareTable">
+      <tbody id="compareTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
